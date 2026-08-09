@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endless Projects</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0c;
+            --text-color: #ffffff;
+            --accent-color: #00ffcc;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* Background grid effect */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        header {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 4% 4rem 4%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fff 30%, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #8a8a93;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+        }
+
+        /* Project Grid */
+        .project-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4% 8rem 4%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 320px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(800px circle at var(--x, 0px) var(--y, 0px), rgba(0, 255, 204, 0.06), transparent 40%);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 255, 204, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-number {
+            font-family: monospace;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .card p {
+            color: #8a8a93;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8a8a93;
+            border: 1px solid var(--card-border);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .card:hover .arrow {
+            transform: translateX(4px);
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+
+    <nav>
+        <div class="logo">Endless<span>.</span></div>
+    </nav>
+
+    <header>
+        <h1><span class="highlight">Endless Projects</span></h1>
+        <p>A curated gallery of continuous creation, digital experiments, and production-ready applications.</p>
+    </header>
+
+    <main class="project-section">
+        <div class="grid">
+            
+            <!-- Project 1 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">// 001</span>
+                    <h3>Quantum Interface</h3>
+                    <p>Next-generation dashboard utilizing real-time data streaming and adaptive UI layouts.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag">Web3 / UI</span>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">// 002</span>
+                    <h3>Helix Engine</h3>
+                    <p>A lightweight, hardware-accelerated 3D rendering pipeline built entirely for modern web browsers.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag">Graphics</span>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">// 003</span>
+                    <h3>Nova Analytics</h3>
+                    <p>Predictive user behavior modeling tools powered by custom machine learning datasets.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag">AI / Data</span>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">// 004</span>
+                    <h3>Aether Sound</h3>
+                    <p>Procedural audio synthesizer engine operating directly within sub-millisecond audio contexts.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag">Audio Tech</span>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">// 005</span>
+                    <h3>Vektor Framework</h3>
+                    <p>A minimalist design system engineered specifically for maximum performance and fluid typography.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag">Design Ops</span>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="card">
+                <div>
+                    <span class="card-number">// 006</span>
+                    <h3>Orbit Compiler</h3>
+                    <p>Experimental rust-based toolchain built to optimize cross-platform layout rendering speeds.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="tag">Dev Tools</span>
+                    <span class="arrow">→</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Interactive mouse glow effect for project cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+</html>
