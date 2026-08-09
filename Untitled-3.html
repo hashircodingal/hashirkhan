@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Media Webpage</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333333;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 10px;
+        }
+        .activity-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        img, video, iframe {
+            max-width: 100%;
+            border-radius: 4px;
+            display: block;
+            margin-top: 15px;
+        }
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML Multimedia Dashboard</h1>
+
+    <!-- ACTIVITY 1: ROCKET MISSION -->
+    <div class="activity-card">
+        <h2>🚀 Activity 1: Rocket Mission</h2>
+        <p>Displaying a mission image using the <code>&lt;img&gt;</code> tag.</p>
+        
+        <!-- Replace 'rocket.jpg' with your actual image path or URL -->
+        <img src="https://unsplash.com" alt="Rocket launching into space" width="600">
+    </div>
+
+    <!-- ACTIVITY 2: AQUATIC BEATS PARTY -->
+    <div class="activity-card">
+        <h2>🎵 Activity 2: Aquatic Beats Party</h2>
+        <p>Playing audio tracks using the <code>&lt;audio&gt;</code> tag.</p>
+        
+        <!-- Replace 'ocean-beats.mp3' with your audio file path or URL -->
+        <audio controls>
+            <source src="https://soundhelix.com" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- ACTIVITY 3: SUPER GAME ZONE -->
+    <div class="activity-card">
+        <h2>🎮 Activity 3: Super Game Zone</h2>
+        <p>Embedding videos and external web content using <code>&lt;video&gt;</code> and <code>&lt;iframe&gt;</code> tags.</p>
+        
+        <!-- Video Element Demo -->
+        <video controls width="100%">
+            <source src="https://w3schools.com" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Iframe Element Demo (Embedding a fallback website window) -->
+        <iframe src="https://example.com" width="100%" height="300" title="Game Framework Window" style="border: 1px solid #ddd;"></iframe>
+    </div>
+
+</body>
+</html>
