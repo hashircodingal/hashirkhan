@@ -1,12 +1,201 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Hello, World!</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-      <h1 class="title">Hello World!</h1>
-      <p id="currentTime"></p>
-      <script src="script.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A brief and complete guide to HTML." />
+  <title>HTML Guide | Learn HTML Briefly</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero" id="home">
+    <nav class="navbar container">
+      <a class="logo" href="#home">&lt;HTML<span>/&gt;</span></a>
+      <button class="menu-button" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="#basics">Basics</a>
+        <a href="#elements">Elements</a>
+        <a href="#semantic">Semantic HTML</a>
+        <a href="#forms">Forms</a>
+        <a href="#tips">Tips</a>
+      </div>
+    </nav>
+
+    <div class="hero-content container">
+      <div>
+        <p class="eyebrow">THE WEB'S FOUNDATION</p>
+        <h1>Learn HTML<br /><span>briefly.</span></h1>
+        <p class="hero-text">
+          HTML, or HyperText Markup Language, structures every webpage.
+          This guide covers the essential concepts you need to get started.
+        </p>
+        <a class="button" href="#basics">Start learning ↓</a>
+      </div>
+      <div class="code-card">
+        <div class="code-header"><i></i><i></i><i></i><span>index.html</span></div>
+        <pre><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attribute">lang</span>=<span class="string">"en"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Hello, world!<span class="tag">&lt;/h1&gt;</span>
+  <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container" id="basics">
+      <p class="eyebrow">01 — THE BASICS</p>
+      <h2>What is HTML?</h2>
+      <p class="section-intro">
+        HTML uses elements and tags to describe the structure and meaning of
+        content. Browsers read HTML and display it as a webpage.
+      </p>
+
+      <div class="cards three-columns">
+        <article class="info-card">
+          <div class="icon">◇</div>
+          <h3>Markup language</h3>
+          <p>HTML is not a programming language. It marks up content with tags so browsers understand it.</p>
+        </article>
+        <article class="info-card">
+          <div class="icon">▣</div>
+          <h3>Document structure</h3>
+          <p>HTML creates headings, paragraphs, links, images, lists, tables, forms, and more.</p>
+        </article>
+        <article class="info-card">
+          <div class="icon">◎</div>
+          <h3>Works with CSS & JS</h3>
+          <p>HTML provides structure, CSS adds style, and JavaScript adds behavior and interaction.</p>
+        </article>
+      </div>
+
+      <div class="definition-grid">
+        <div>
+          <h3>HTML document anatomy</h3>
+          <p>A standard HTML file has a document type declaration, a root <code>&lt;html&gt;</code> element, metadata in <code>&lt;head&gt;</code>, and visible content in <code>&lt;body&gt;</code>.</p>
+        </div>
+        <pre class="dark-code"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+  <span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;title&gt;</span>Page title<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;/head&gt;</span>
+  <span class="tag">&lt;body&gt;</span>
+    Visible content goes here
+  <span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+      </div>
+    </section>
+
+    <section class="section muted-section" id="elements">
+      <div class="container">
+        <p class="eyebrow">02 — BUILDING BLOCKS</p>
+        <h2>Essential HTML elements</h2>
+        <p class="section-intro">Elements usually have an opening tag, content, and a closing tag.</p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr><th>Element</th><th>Purpose</th><th>Example</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>&lt;h1&gt; – &lt;h6&gt;</code></td><td>Headings</td><td><code>&lt;h1&gt;Title&lt;/h1&gt;</code></td></tr>
+              <tr><td><code>&lt;p&gt;</code></td><td>Paragraph</td><td><code>&lt;p&gt;Text&lt;/p&gt;</code></td></tr>
+              <tr><td><code>&lt;a&gt;</code></td><td>Hyperlink</td><td><code>&lt;a href="..."&gt;Link&lt;/a&gt;</code></td></tr>
+              <tr><td><code>&lt;img&gt;</code></td><td>Image</td><td><code>&lt;img src="..." alt="..."&gt;</code></td></tr>
+              <tr><td><code>&lt;ul&gt; / &lt;ol&gt;</code></td><td>Unordered / ordered list</td><td><code>&lt;li&gt;Item&lt;/li&gt;</code></td></tr>
+              <tr><td><code>&lt;div&gt; / &lt;span&gt;</code></td><td>Generic containers</td><td><code>&lt;div&gt;Content&lt;/div&gt;</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          <strong>Attributes:</strong> Attributes provide extra information about an element.
+          For example, <code>href</code> defines a link destination and <code>class</code> identifies
+          an element for CSS styling.
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="semantic">
+      <p class="eyebrow">03 — MEANINGFUL MARKUP</p>
+      <h2>Semantic HTML</h2>
+      <p class="section-intro">Semantic elements clearly describe their purpose to browsers, search engines, and assistive technologies.</p>
+
+      <div class="semantic-layout">
+        <div class="semantic-diagram">
+          <div class="diagram-label">header</div>
+          <div class="diagram-row">
+            <div class="diagram-label">nav</div>
+            <div class="diagram-main">
+              <div class="diagram-label">main</div>
+              <div class="diagram-row">
+                <div class="diagram-label">article</div>
+                <div class="diagram-label">aside</div>
+              </div>
+            </div>
+          </div>
+          <div class="diagram-label">footer</div>
+        </div>
+        <div>
+          <h3>Common semantic elements</h3>
+          <ul class="check-list">
+            <li><code>&lt;header&gt;</code> Introductory content or navigation</li>
+            <li><code>&lt;nav&gt;</code> A group of navigation links</li>
+            <li><code>&lt;main&gt;</code> The page's primary content</li>
+            <li><code>&lt;section&gt;</code> A thematic content section</li>
+            <li><code>&lt;article&gt;</code> Independent, reusable content</li>
+            <li><code>&lt;footer&gt;</code> Closing information for a page or section</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section muted-section" id="forms">
+      <div class="container">
+        <p class="eyebrow">04 — USER INPUT</p>
+        <h2>Forms and media</h2>
+        <div class="two-columns">
+          <div>
+            <h3>Forms collect information</h3>
+            <pre class="dark-code"><code><span class="tag">&lt;form&gt;</span>
+  <span class="tag">&lt;label</span> <span class="attribute">for</span>=<span class="string">"email"</span><span class="tag">&gt;</span>Email<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attribute">id</span>=<span class="string">"email"</span> <span class="attribute">type</span>=<span class="string">"email"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attribute">type</span>=<span class="string">"submit"</span><span class="tag">&gt;</span>Send<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></code></pre>
+          </div>
+          <div>
+            <h3>Images, audio, and video</h3>
+            <p>Use media elements to include rich content. Always provide alternative text for images.</p>
+            <div class="tag-list">
+              <code>&lt;img&gt;</code><code>&lt;audio&gt;</code><code>&lt;video&gt;</code><code>&lt;iframe&gt;</code>
+            </div>
+            <p class="small-text">The <code>alt</code> attribute helps users who cannot see images understand their content.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="tips">
+      <p class="eyebrow">05 — BEST PRACTICES</p>
+      <h2>Write better HTML</h2>
+      <div class="tips-grid">
+        <div><span>01</span><h3>Use valid structure</h3><p>Always include <code>&lt;!DOCTYPE html&gt;</code>, language information, and a viewport meta tag.</p></div>
+        <div><span>02</span><h3>Choose semantic tags</h3><p>Prefer meaningful elements over using <code>&lt;div&gt;</code> for everything.</p></div>
+        <div><span>03</span><h3>Think accessibility</h3><p>Connect labels to inputs, add image alt text, and use headings in the correct order.</p></div>
+        <div><span>04</span><h3>Keep it organized</h3><p>Indent nested elements, use lowercase tags, and close every non-void element.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <a class="logo" href="#home">&lt;HTML<span>/&gt;</span></a>
+      <p>Structure the web, one element at a time.</p>
+      <a href="#home" class="back-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
