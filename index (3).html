@@ -3,29 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript String Methods and Loops</title>
+  <title>Student Profile Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="container">
-    <h1>JavaScript String Methods and Loops</h1>
+  <main class="dashboard">
+    <header class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Student showcase · 2024</span>
+        <h1>Meet <span>Riya</span></h1>
+        <p>A curious learner with a creative spirit and a love for vibrant colors.</p>
+      </div>
+      <div class="avatar" aria-label="Riya's initials">R</div>
+    </header>
 
-    <section class="card">
-      <h2>Numbers from 1 to 10</h2>
-      <p id="numbers"></p>
+    <section class="content-grid" aria-label="Student information">
+      <article class="card profile-card">
+        <div class="card-heading">
+          <div>
+            <span class="section-label">About the student</span>
+            <h2>Personal details</h2>
+          </div>
+          <span class="status"><i></i> Active</span>
+        </div>
+        <div class="details">
+          <div class="detail-item"><span class="detail-icon">✦</span><div><small>Name</small><strong id="studentName"></strong></div></div>
+          <div class="detail-item"><span class="detail-icon">◷</span><div><small>Age</small><strong><span id="studentAge"></span> years old</strong></div></div>
+          <div class="detail-item"><span class="detail-icon">⌁</span><div><small>Grade</small><strong>Grade <span id="studentGrade"></span></strong></div></div>
+          <div class="detail-item"><span class="detail-icon">♡</span><div><small>Hobby</small><strong id="studentHobby"></strong></div></div>
+        </div>
+      </article>
+
+      <article class="card sport-card">
+        <span class="section-label">Favorite sport</span>
+        <div class="sport-content">
+          <div class="sport-ball">🏏</div>
+          <div><h2 id="favoriteSport"></h2><p>Play with passion</p></div>
+        </div>
+      </article>
+
+      <article class="card colors-card">
+        <div class="card-heading">
+          <div>
+            <span class="section-label">Color collection</span>
+            <h2>Riya's favorites</h2>
+          </div>
+          <span class="count" id="colorCount"></span>
+        </div>
+        <div class="color-list" id="colorList"></div>
+        <div class="color-actions">
+          <p id="colorMessage">Choose a color to explore the collection.</p>
+          <div class="buttons">
+            <button id="popButton" type="button">Pop last color <span>↗</span></button>
+            <button id="resetButton" class="secondary" type="button">Reset</button>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <section class="card">
-      <h2>Random Value</h2>
-      <p id="randomValue"></p>
-    </section>
-
-    <section class="card">
-      <h2>Today's Date</h2>
-      <p id="date"></p>
-    </section>
+    <footer>Built with curiosity <span>✦</span> and a splash of color</footer>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    const student = {
+      name: 'Riya', age: 12, grade: 7, hobby: 'Drawing', favoriteSport: 'Cricket'
+    };
+    const originalColors = ['white', 'black', 'red', 'green', 'blue'];
+    let colors = [...originalColors];
+
+    document.getElementById('studentName').textContent = student.name;
+    document.getElementById('studentAge').textContent = student.age;
+    document.getElementById('studentGrade').textContent = student.grade;
+    document.getElementById('studentHobby').textContent = student.hobby;
+    document.getElementById('favoriteSport').textContent = student.favoriteSport;
+
+    const colorList = document.getElementById('colorList');
+    const colorCount = document.getElementById('colorCount');
+    const colorMessage = document.getElementById('colorMessage');
+
+    function renderColors() {
+      colorList.innerHTML = '';
+      colors.forEach((color, index) => {
+        const chip = document.createElement('button');
+        chip.className = 'color-chip';
+        chip.type = 'button';
+        chip.innerHTML = `<span class="swatch ${color}"></span>${color}<b>${index + 1}</b>`;
+        chip.addEventListener('click', () => {
+          colorMessage.textContent = `${color[0].toUpperCase() + color.slice(1)} is color number ${index + 1}.`;
+        });
+        colorList.appendChild(chip);
+      });
+      colorCount.textContent = `${colors.length} colors`;
+      document.getElementById('popButton').disabled = colors.length === 0;
+    }
+
+    document.getElementById('popButton').addEventListener('click', () => {
+      const removedColor = colors.pop();
+      if (removedColor) colorMessage.textContent = `${removedColor[0].toUpperCase() + removedColor.slice(1)} was popped from the collection.`;
+      renderColors();
+    });
+
+    document.getElementById('resetButton').addEventListener('click', () => {
+      colors = [...originalColors];
+      colorMessage.textContent = 'The color collection has been restored.';
+      renderColors();
+    });
+
+    renderColors();
+  </script>
 </body>
 </html>
