@@ -1,70 +1,149 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>My Nature Explorer Page</title>
+  <title>My Digital Zoo Manager</title>
 
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: aliceblue;
+      text-align: center;
+      color: #222222;
+    }
+
+    h1 {
+      color: darkgreen;
+    }
+
+    #zoo {
+      width: 420px;
+      border: 3px solid darkgreen;
+      border-radius: 12px;
+      background-color: white;
+      margin: 20px auto;
+      padding: 15px;
+    }
+
+    .zone {
+      border: 2px solid seagreen;
+      border-radius: 8px;
+      margin: 10px;
+      padding: 12px;
+      background-color: #f0fff0;
+      text-align: left;
+    }
+
+    .animal {
+      font-weight: bold;
+      color: darkorange;
+    }
+
+    button {
+      background-color: darkgreen;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 22px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #output {
+      width: 420px;
+      border: 2px dashed darkgreen;
+      border-radius: 10px;
+      background-color: #ffffff;
+      margin: 20px auto;
+      padding: 12px;
+      text-align: left;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- container-fluid: full-width header -->
-  <div class="container-fluid bg-success text-white p-4">
-    <h1>My Nature Explorer Page</h1>
-    <p>Explore forests, rivers, mountains, and wildlife through this nature-themed webpage.</p>
-  </div>
+  <h1>My Digital Zoo Manager</h1>
 
-  <!-- container: keeps content centered and neat -->
-  <div class="container">
+  <p>
+    Use JavaScript and the DOM to explore animals, zones, parent nodes,
+    child nodes, and sibling nodes.
+  </p>
 
-    <!-- my-3: adds vertical spacing, p-3: adds padding -->
-    <div class="bg-info text-white p-3 my-3 border border-dark">
-      <h2>Forest Adventure</h2>
-      <p>
-        Forests are full of trees, animals, birds, and fresh air. They help keep our planet healthy.
-      </p>
+  <div id="zoo">
+
+    <div class="zone" id="lionZone">
+      <h2>Lion Zone</h2>
+      <p>Animal: <span class="animal">Lion</span></p>
     </div>
 
-    <div class="bg-primary text-white p-3 my-3 border border-dark">
-      <h2>River Journey</h2>
-      <p>
-        Rivers provide water for people, plants, and animals. They also make beautiful natural landscapes.
-      </p>
+    <div class="zone" id="elephantZone">
+      <h2>Elephant Zone</h2>
+      <p>Animal: <span class="animal">Elephant</span></p>
     </div>
 
-    <div class="bg-warning p-3 my-3 border border-dark">
-      <h2>Mountain View</h2>
-      <p>
-        Mountains are tall landforms that give us amazing views and are home to many unique plants and animals.
-      </p>
-    </div>
-
-    <div class="bg-danger text-white p-3 my-3 border border-dark">
-      <h2>Wildlife Zone</h2>
-      <p>
-        Wildlife includes animals living freely in nature. We should protect their homes and keep nature safe.
-      </p>
-    </div>
-
-    <div class="bg-light p-3 my-3 border border-success">
-      <h2>Nature Explorer Checklist</h2>
-      <ul>
-        <li>Observe plants carefully</li>
-        <li>Do not disturb animals</li>
-        <li>Keep the environment clean</li>
-        <li>Carry a water bottle</li>
-      </ul>
+    <div class="zone" id="pandaZone">
+      <h2>Panda Zone</h2>
+      <p>Animal: <span class="animal">Panda</span></p>
     </div>
 
   </div>
 
-  <!-- container-fluid: full-width footer -->
-  <div class="container-fluid bg-dark text-white p-3 my-3">
-    <p>Nature Tip: Protecting nature means protecting our future.</p>
+  <button onclick="manageZoo()">Manage Zoo</button>
+
+  <div id="output">
+    Zoo information will appear here.
   </div>
+
+  <script>
+    function manageZoo() {
+
+      // HTML DOM: Selecting elements from the webpage
+      let zoo = document.getElementById("zoo");
+      let lionZone = document.getElementById("lionZone");
+      let elephantZone = document.getElementById("elephantZone");
+      let pandaZone = document.getElementById("pandaZone");
+      let output = document.getElementById("output");
+
+      // The DOM Tree: zoo is the parent container of all animal zones
+      let parentNodeName = lionZone.parentNode.id;
+
+      // Parent, Child, and Sibling Nodes
+      let firstChildZone = zoo.children[0].id;
+      let secondChildZone = zoo.children[1].id;
+      let nextSiblingZone = lionZone.nextElementSibling.id;
+      let previousSiblingZone = pandaZone.previousElementSibling.id;
+
+      // Types of Nodes
+      let elementNodeType = lionZone.nodeType;
+      let textNodeType = lionZone.firstChild.nodeType;
+
+      // JavaScript and the DOM: Changing content and style
+      lionZone.style.backgroundColor = "#fff3cd";
+      elephantZone.style.backgroundColor = "#d1ecf1";
+      pandaZone.style.backgroundColor = "#f8d7da";
+
+      lionZone.querySelector("h2").innerHTML = "Updated Lion Zone";
+      elephantZone.querySelector("h2").innerHTML = "Updated Elephant Zone";
+      pandaZone.querySelector("h2").innerHTML = "Updated Panda Zone";
+
+      output.innerHTML =
+        "<strong>DOM Tree Information:</strong><br>" +
+        "Parent of Lion Zone: " + parentNodeName + "<br>" +
+        "First child of Zoo: " + firstChildZone + "<br>" +
+        "Second child of Zoo: " + secondChildZone + "<br><br>" +
+
+        "<strong>Sibling Node Information:</strong><br>" +
+        "Next sibling of Lion Zone: " + nextSiblingZone + "<br>" +
+        "Previous sibling of Panda Zone: " + previousSiblingZone + "<br><br>" +
+
+        "<strong>Types of Nodes:</strong><br>" +
+        "Lion Zone element node type: " + elementNodeType + "<br>" +
+        "Lion Zone first child text node type: " + textNodeType + "<br><br>" +
+
+        "<strong>DOM Update:</strong><br>" +
+        "The animal zone headings and background colours were updated using JavaScript.";
+    }
+  </script>
 
 </body>
 </html>
